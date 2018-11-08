@@ -1,0 +1,157 @@
+{{!-- <h2>GAMEPAGE</h2> --}}
+<div class="container game-screen">
+<section>
+<div id="passwordform">
+    <img class="char-select-head col-md-12" src="../public/assets/images/headers/enter-your-password.png"/>
+    <form class="text-center password-form">
+        <textarea id="passwordYo" rows="1" cols="60"></textarea>
+        <button id="submitPassword" class="btn">Submit</button>
+    </form> 
+    <br><br>
+    <div class="text-center">
+        <button class="backHome btn password-home-btn">Home</button>
+    </div>
+</div>
+
+<div id="gamePage" class="hidden container text-center">
+    <img class="game-head col-md-12" src="../public/assets/images/headers/Game-Page.png"/>
+    <div>
+        <img class="boss-head col-md-12" src="../public/assets/images/headers/bosses-to-defeat.png"/>
+        <img id ="startbossone" class="hidden img img-responsive tada animated" src="../public/assets/images/fight/bosses/Thugs.png"/>
+        <img id ="startbosstwo" class="hidden img img-responsive tada animated" src="../public/assets/images/fight/bosses/Ninja-Three.png"/>
+        <img id ="startbossthree" class="hidden img img-responsive tada animated" src="../public/assets/images/fight/bosses/Robo-bot.png"/>
+    </div>
+    <button class="backHome btn">Home</button>
+</div>
+<div id = "bossonescreen" class = "bossdiv text-center hidden">
+    <img class="col-md-12" src="../public/assets/images/headers/Thugs-Head.png"/>
+    <div class="row">
+        <div class="col-md-6 colorMeRad">
+            <h3 class = "usernamedisplay">Player</h3>
+                <img class="charnamedisplay img img-responsive col-md-12" />
+                <div class="player1-box">
+                <h6 class = "playerattack">attack</h6>
+                <h6 class = "playerdefense">defense</h6>
+                <h6 class = "playerintellect">intellect</h6>
+                <h6 class = "itemsEquip"></h6>
+                <h4 class = "playerattackstat">pending action</h4>
+            </div>
+            
+            <br>
+            <button id= "playerButtonb1" class="btn">Break the Thug</button>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="col-md-6">
+            <h3 class = "bossnamedisplay boss1-text">Boss</h3>
+            <img class="col-md-12 boss-image" src="../public/assets/images/fight/bosses/Thugs-Fight.png"/>
+            <br>
+            <div class="boss-box">
+                <h6 class = "bossattack boss1-text">attack</h6>
+                <h6 class = "bossdefense boss1-text">defense</h6>
+                <h6 class = "bossintellect boss1-text">intellect</h6>
+                <h4 class = "bossattackstat boss1-text">pending action</h4>
+            </div>
+            <br>
+        </div>
+    </div>
+    <button class="ditchFight btn">BAIL!</button>
+</div>
+
+<div id = "bosstwoscreen" class = "bossdiv text-center hidden">
+    <img class="col-md-12 nin-three-head" src="../public/assets/images/headers/Ninja-Three-Head.png"/>
+    <div class="row">
+        <div class="col-md-6 colorMeRad">
+            <h3 class = "usernamedisplay">Player</h3>
+                <img class="charnamedisplay img img-responsive col-md-12" />
+                <div class="player1-box">
+                    <h6 class = "playerattack">attack</h6>
+                    <h6 class = "playerdefense">defense</h6>
+                    <h6 class = "playerintellect">intellect</h6>
+                    <h6 class = "itemsEquip"></h6>
+                    <h4 class = "playerattackstat">pending action</h4>
+            </div>
+            
+            <br>
+            <button id= "playerButtonb2">Brie the Ninja Three</button>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="col-md-6">
+            <h3 class = "bossnamedisplay boss2-text">Boss</h3>
+            <img class="col-md-12 boss-image" src="../public/assets/images/fight/bosses/Ninja-Three-Fight.png"/>
+            <br>
+            <div class="boss-box">
+                <h6 class = "bossattack boss2-text">attack</h6>
+                <h6 class = "bossdefense boss2-text">defense</h6>
+                <h6 class = "bossintellect boss2-text">intellect</h6>
+                <h4 class = "bossattackstat boss2-text">pending action</h4>
+            </div>
+            <br>
+        </div>
+    </div>
+    <button class="ditchFight btn">AW HELL NA!</button>
+</div>
+
+<div id = "bossthreescreen" class = "bossdiv text-center hidden">
+    <img class="thugs-head col-md-12" src="../public/assets/images/headers/robo-bot-Head.png"/>
+    <div class="row">
+        <div class="col-md-6 colorMeRad">
+            <h3 class = "usernamedisplay">Player</h3>
+                <img class="charnamedisplay img img-responsive col-md-12" />
+                <div class="player1-box">
+                <h6 class = "playerattack">attack</h6>
+                <h6 class = "playerdefense">defense</h6>
+                <h6 class = "playerintellect">intellect</h6>
+                <h6 class = "itemsEquip"></h6>
+                <h4 class = "playerattackstat">pending action</h4>
+            </div>
+            
+            <br>
+            <button id= "playerButtonb3">Install that program</button>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="col-md-6">
+            <h3 class = "bossnamedisplay boss3-text">Boss</h3>
+            <img class="col-md-12 boss-image" src="../public/assets/images/fight/bosses/Robo-Bot-Fight.png"/>
+            <br>
+            <div class="boss-box">
+                <h6 class = "bossattack boss1-text">attack</h6>
+                <h6 class = "bossdefense boss1-text">defense</h6>
+                <h6 class = "bossintellect boss1-text">intellect</h6>
+                <h4 class = "bossattackstat boss1-text">pending action</h4>
+            </div>
+            <br>
+        </div>
+    </div>
+    <button class="ditchFight btn">BYEE!</button>
+</div>
+    
+<div id = "winlosediv" class = "text-center hidden">
+    <img class="thugs-head col-md-12" id = "defeatedBossImg" src="../public/assets/images/headers/boss-defeat.png"/>
+    <h1 id = "winlosetext" class="pressStart"></h1>
+    <button id="backtogamepage" class="btn">Back to Battle</button>
+</div>   
+</section>
+</div>
+
+<div id = "wrongPasswordContainer" class = "container">
+    <div id = "wrongPassword" class = "hidden">
+        <span class = "row">
+            <span class = "col-lg-12 text-center">
+                <img src="../public/assets/images/wrong-password.png" class = "img img-responsive" style = "width: 50%;, height: 50;">
+            </span>
+        </span>
+        <span class = "row">
+            <span class = "col-lg-12 text-center">
+                <h1>Wrong password idiot</h1>
+                <br><br>
+                <button><a href = "/gamepage">Wanna try that again?</a></button>
+            </span>
+        </span>
+    </div>
+</div>

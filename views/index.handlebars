@@ -1,0 +1,279 @@
+<div class="container main-screen">
+{{!-- does work in chrome because they know it's annoying lol --}}
+{{!-- <audio class="themeMusic" preload="auto" autoplay>
+    <source src="../public/assets/music/BTM Theme (Fon.Leman - Lynx Eye).mp3" type="audio/mpeg">
+</audio> --}}
+
+<section>
+    <div id = "welcomeScreen">
+        <img class="homepage-header col-md-12 flipInY animated" src="../public/assets/images/Header.png"/>
+        <br>
+        <button id = "newGame" class="btn pulse">New Game</button>
+        <br>
+        <button id = "continueGame" class="btn pulse">Continue</button>
+    </div>
+
+    {{!-- Enter Credentials Screen --}}
+    <div id = "enterCredentials" class = "hidden">
+        <img class="char-select-head col-md-12" src="../public/assets/images/Enter-Credentials.png"/>
+        <form class="create-form text-center">
+            <span class="pressStart">Username: </span><textarea id="userNameInput" rows="1" cols="40"></textarea>
+            </br>
+            <span class="pressStart">Password: </span><textarea id="passwordInput" rows="1" cols="40"></textarea>
+            <br>
+            <div class="backNext">
+                <button class="btn backHome">Back</button>
+                <button id="submitCredentials" class="btn">Next</button>
+            </div>
+        {{!-- <button id="submitUser">Submit</button>
+        <button class="backHome">Home Page</button> --}}
+        </form>
+    </div>
+
+    {{!-- item screen --}}
+{{!-- Creates the page for item selection where I will be inputting all the data from itemsDB --}}
+    <div id = "itemSelection" class = "hidden">
+        <img class="char-select-head col-md-12" src="../public/assets/images/Pick-An-Item.png"/>
+        <table class="item-table" align="center">
+                <tbody id="items"data-toggle="modal" data-target="#item-sel-modal" align="center"></tbody>
+        </table>
+        <div class="backChar text-center">
+            <button id="charCreation" class="btn">Back To Character Creation</button>
+            {{!-- <button id="submitUser" class="btn">Submit</button> --}}
+        </div>
+    </div>  
+
+    {{!-- Create User Modal Box --}}
+        <!-- The Modal -->
+        <div class="modal" id="char-sel-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            <!-- Modal Header -->
+            {{!-- <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div> --}}
+
+            <!-- Modal body -->
+            <div class="modal-body pressStart">
+                <p>Are you sure you want to play as:</p><p id="thisname">??</p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button id="modal-close" class="btn" data-dismiss="modal">No</button>
+                <button id="itemScreen"  class="btn" data-dismiss="modal">Yes</button>
+            </div>
+
+            </div>
+        </div>
+        </div>
+
+
+
+        <div class="modal" id="item-sel-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+          
+
+            <!-- Modal body -->
+            <div class="modal-body pressStart">
+                <p>Hit that yes if you want to take this item into battle:</p><p id="thisitemname"></p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button id="modal-close" class="btn" data-dismiss="modal">No</button>
+                <button id="submitUser"  class="btn" data-dismiss="modal">Yes</button>
+            </div>
+
+            </div>
+        </div>
+        </div>
+
+
+    {{!-- Create User Screen --}}
+    <div id = "createUser" class="hidden">
+        <img class="char-select-head col-md-12" src="../public/assets/images/Character-Select.png"/>
+        <div id="myID" class="charSelect text-center">
+            <br>
+            {{!-- <div class="col-xs-12 charNames">Hero&nbsp; Sidekick Shadowtaken Mothman</div> --}}
+            <img id="heroCharacter" class="img img-responsive heroCharacter flash" data-toggle="modal" data-target="#char-sel-modal" src="../public/assets/images/charSelect/HeroSelect.png" />
+            <img id="sidekickCharacter" class="img img-responsive sidekickCharacter flash" data-toggle="modal" data-target="#char-sel-modal" src="../public/assets/images/charSelect/SidekickSelect.png" />
+            <img id="shadowtakenCharacter" class="img img-responsive shadowtakenCharacter flash" data-toggle="modal" data-target="#char-sel-modal" src="../public/assets/images/charSelect/ShadowtakenSelect.png" />
+            <img id="mothmanCharacter" class="img img-responsive mothmanCharacter flash" data-toggle="modal" data-target="#char-sel-modal" src="../public/assets/images/charSelect/MothmanSelect.png" />      
+            <div class="container">
+                <div class="row blankStats"></div>
+                {{!-- Hero Stats --}}
+                <div class="row  hero-DIV hidden">
+                    <div class="col-md-4 heroStats">
+                        <img class="img img-responsive heroStats-img" src="../public/assets/images/charSelect/HeroStats.png"/>
+                    </div>
+                    <div class="col-md-8 heroStats-text">
+                        <p>Name: <span class="yellow">Hero</span></p>
+                        <p>Class: <span class="yellow">Brawler</span></p>
+                        <p>Strength: <span class="yellow">30</span></p>
+                        <p>Defense: <span class="yellow">30</span></p>
+                        <P>Intelligence: <span class="yellow">30</span></P>
+                        
+                    </div>
+
+                </div>
+                {{!-- Sidekick Stats --}}
+                <div class="row sidekick-DIV hidden">
+                    <div class="col-md-4 heroStats">
+                        <img class="img img-responsive heroStats-img" src="../public/assets/images/charSelect/SidekickStats.png"/>
+                    </div>
+                    <div class="col-md-8 heroStats-text">
+                        <p>Name: <span class="yellow">Sidekick</span></p>
+                        <p>Class: <span class="yellow">Engineer</span></p>
+                        <p>Strength: <span class="yellow">25</span></p>
+                        <p>Defense: <span class="yellow">30</span></p>
+                        <P>Intelligence: <span class="yellow">35</span></P>
+                    </div>
+                </div>
+                <div class="row shadowtaken-DIV hidden">
+                    <div class="col-md-4 heroStats">
+                        <img class="img img-responsive heroStats-img" src="../public/assets/images/charSelect/ShadowtakenStats.png"/>
+                    </div>
+                    <div class="col-md-8 heroStats-text">
+                        <p>Name: <span class="yellow">Shadowtaken</span></p>
+                        <p>Class: <span class="yellow">Martial Artist</span></p>
+                        <p>Strength: <span class="yellow">40</span></p>
+                        <p>Defense: <span class="yellow">25</span></p>
+                        <P>Intelligence: <span class="yellow">25</span></P>
+                    </div>
+                </div>
+                <div class="row mothman-DIV hidden">
+                    <div class="col-md-4 heroStats">
+                        <img class="img img-responsive heroStats-img" src="../public/assets/images/charSelect/MothmanStats.png"/>
+                    </div>
+                    <div class="col-md-8 heroStats-text">
+                        <p>Name: <span class="yellow">Mothman</span></p>
+                        <p>Class: <span class="yellow">???</span></p>
+                        <p>Strength: <span class="yellow">20</span></p>
+                        <p>Defense: <span class="yellow">50</span></p>
+                        <P>Intelligence: <span class="yellow">20</span></P>
+                        
+                    </div>
+                </div>
+
+                {{!-- <button id="itemScreen" class="btn">Next: Item Selection</button> --}}
+            </div>
+
+            {{!-- <button class="btns flash active" id = "heroCharacter">
+                <img class="heroCharacter" src="../public/assets/images/charSelect/HeroSelect.png" width="150"/>
+            </button>
+            <button class="btns flash" id = "sidekickCharacter">
+                <img src="../public/assets/images/charSelect/SidekickSelect.png" width="150" />
+            </button>
+            <button class="btns flash" id = "shadowtakenCharacter">
+                <img src="../public/assets/images/charSelect/ShadowtakenSelect.png" width="150" />
+            </button>
+            <button class="btns flash" id = "mothmanCharacter">
+                <img src="../public/assets/images/charSelect/MothmanSelect.png" width="150" />
+            </button> --}}
+           
+            {{!-- MODAL BOX
+            <div class="char-sel-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+            </div> --}}
+                {{!-- <button class="btns flash active" id = "heroCharacter">
+                    <img class="heroCharacter" src="../public/assets/images/charSelect/HeroSelect.png" width="150"/>
+                </button>
+                <button class="btns flash" id = "sidekickCharacter">
+                    <img src="../public/assets/images/charSelect/SidekickSelect.png" width="150" />
+                </button>
+                <button class="btns flash" id = "shadowtakenCharacter">
+                    <img src="../public/assets/images/charSelect/ShadowtakenSelect.png" width="150" />
+                </button>
+                <button class="btns flash" id = "mothmanCharacter">
+                    <img src="../public/assets/images/charSelect/MothmanSelect.png" width="150" />
+                </button> --}}
+                <br>
+        <div>
+            <button class="backHome btn">Home</button>
+            <button id="backToUser" class="btn">User Credentials</button>
+            {{!-- <button id="submitUser" class="btn">Submit</button> --}}
+        </div>
+        </div>
+    </div>
+
+    {{!-- Enter Credentials Screen
+    <div id = "enterCredentials" class = "hidden">
+        <img class="char-select-head col-md-12" src="../public/assets/images/Enter-Credentials.png"/>
+        <form class="create-form text-center">
+            <span class="pressStart">Username: </span><textarea id="userNameInput" rows="1" cols="40"></textarea>
+            </br>
+            <span class="pressStart">Password: </span><textarea id="passwordInput" rows="1" cols="40"></textarea>
+            <br>
+            <div class="backNext">
+                <button class="btn backHome">Back</button>
+                <button id="submitCredentials" class="btn">Next</button>
+    </div> --}}
+
+<div id = "userInfo" class = "hidden">
+    <img class="char-select-head col-md-12" src="../public/assets/images/headers/Continue.png"/>
+    <div class = "table-responsive">
+        <table class = "table continue-table">
+            <thead>
+                <tr>
+                <th scope = "col">#</th>
+                <th scope = "col">Username</th>
+                <th scope = "col">Character</th>
+                <th scope = "col">Attack Power</th>
+                <th scope = "col">Defense Health</th>
+                <th scope = "col">Intellect Prowless</th>
+                <th scope = "col">Item One</th>
+                <th scope = "col">Item Two</th>
+                <th scope = "col">Item Three</th>
+                <th scope = "col"></th>
+                <tr>
+            </thead>
+            <tbody>
+            {{#each brawler}}
+                <tr>
+                    <th scope="row">{{this.id}}</th>
+                    <td>{{this.userName}}</td>
+                    <td>{{this.charName}}</td>
+                    <td>{{this.attack}}</td>
+                    <td>{{this.defense}}</td>
+                    <td>{{this.intellect}}</td>
+                    <td>{{this.itemOne}}</td>
+                    <td>{{this.itemTwo}}</td>
+                    <td>{{this.itemThree}}</td>
+                    <td><button class = "btn btn-danger continuethefight">Continue?</button></td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+        <br>
+        <div class="text-center">
+            <button class="backHome btn">Home</button>
+        </div>
+        <br>
+    </div>
+
+    {{!-- <div class="footer">
+        <p>&copy 2018 by Leah and the Git Squad Inc.</p>
+    </div> --}}
+</section>    
+</div>

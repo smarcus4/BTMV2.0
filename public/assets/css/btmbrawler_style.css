@@ -1,0 +1,412 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P|Acme');
+
+/* Bootstrap 4.0 Container */
+.container {
+    width: 99%;
+    height: 99%;
+}
+
+/* Press Start Font */
+.pressStart {
+    font-family: 'Press Start 2P', cursive;
+    color: #f3ea21;
+    text-shadow: #1F3E60 3px 4px;
+}
+
+/* Bootstrap Body Stuff */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    background-color: black;
+    margin-bottom: 45px; /* Margin bottom by footer height */
+}
+.hidden {
+    display: none;
+}
+
+/* Enter Credentials Stuff */
+#enterCredentials, #itemSelection {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.create-form {
+    margin-top: 8%;
+    font-size: 1.3em;
+    padding-bottom: 8%;
+}
+
+.create-form textarea {
+    text-align: left;
+}
+
+/* Next, Back Home Buttons */
+.backNext {
+    margin: 8% 0;
+}
+
+.backChar {
+    margin: 3%;
+}
+
+#submitCredentials, .backHome, #backToUser, #submitUser, #itemScreen, #charCreation, #pickItem, #modal-close, #submitPassword, #playerButtonb1, #playerButtonb2, #playerButtonb3, #backtogamepage, .ditchFight {
+    font-family: 'Press Start 2P', cursive;
+    margin: auto;
+    font-size: 1em;
+    padding: 13px;
+    color: #F1DA28;
+    background-color: #494D7C;
+    box-shadow: 5px 5px lightgrey;
+    transition: all .1s ease-in-out;
+    padding: 10px 15px;
+    margin: 0 1%;
+}
+
+#submitCredentials:hover, .backHome:hover, #backToUser:hover, #charCreation:hover, #submitUser:hover, #itemScreen:hover, #modal-close:hover, #submitPassword:hover, #playerButtonb1:hover, #playerButtonb2:hover, #playerButtonb3:hover,  backtogamepage:hover, .ditchFight:hover {
+    transform: scale(1.05);
+}
+
+#submitCredentials:active, .backHome:active, #backToUser:active, #submitUser:active, #itemScreen:active, #modal-close:active, #submitPassword:hover, #playerButtonb1:active, #playerButtonb2:active, #playerButtonb3:active, backtogamepage:active, .ditchFight:active {
+    transform: scale(1.00);
+}
+
+#backtogamepage, #winlosetext {
+    margin-top: 2%;
+}
+
+/* Page Titles */
+.homepage-header, .char-select-head, .game-head {
+    margin: auto;
+    display: block;
+    padding-top: 3%;
+    width:90%
+}
+
+.char-select-head, .game-head {
+    padding-top: 2%;
+}
+
+#newGame, #continueGame {
+    font-family: 'Press Start 2P', cursive;
+    margin: auto;
+    display: block;
+    font-size: 1.3em;
+    padding: 13px;
+    color: #F1DA28;
+    background-color: #494D7C;
+    box-shadow: 5px 5px lightgrey;
+    transition: all .1s ease-in-out;
+}
+
+#newGame:hover, #continueGame:hover {
+    transform: scale(1.05);
+}
+
+#newGame:active, #continueGame:active {
+    transform: scale(1.00);
+}
+
+.submit:focus, .startButton:focus {
+    outline:none;
+}
+
+#newGame {
+    margin-top: 5%;
+}
+
+/*pulse effect for crystal hover*/
+.pulse:hover {
+    animation: pulse .6s infinite;
+  }  
+@keyframes pulse {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.spin:hover {
+    animation: coin-rotate 2s both infinite;
+}
+
+@keyframes coin-rotate {
+    0 { transform: rotateY(0); }
+    50% { transform: rotateY(180deg); }
+    100% { transform: rotateY(0deg); }
+}
+
+.main-screen {
+	background-image: url("../images/Hero-and-Sidekick.png"), url("../images/Front-Buildings.png"), url("../images/Roto-Bot.png"), url("../images/Rear-Buildings.png"), url("../images/Clouds-and-Moon.png");
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-size: 100%, 100%, 100%, 100%, 100%;
+    min-height:575px;
+}
+
+@keyframes animateCity {
+	from { background-position: 0 30px, 0 120px, -450px 50px, 0 30px, 0 -30px; }
+	to { background-position: 20px -50px, 0 110px, -375px 65px, 0 0, 0 -30px; }
+}
+		
+.main-screen { 
+    animation: animateCity 2.5s linear;
+    animation-fill-mode: forwards;
+    background-color: black;
+}
+
+.game-screen {
+	background-image: url("../images/game-background.png");
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+    min-height:575px;
+}
+
+.footer {
+    font-family: 'Press Start 2P', cursive;
+    font-size: .8em;
+    color: white;
+    text-align: center;
+    margin-left: -16px;
+    width: 103%;
+    height: 45px; /* Set the fixed height of the footer here */
+    line-height: 50px; /* Vertically center the text there */
+    background-color: rgb(39, 38, 38);
+    margin-top: 180px;
+}
+
+#createUser, #userInfo, #passwordform, #gamePage, #bossonescreen, #bosstwoscreen, #bossthreescreen, #winlosediv, #wrongPassDIV {
+    background: rgba(0, 0, 0, 0.7);
+    width: 95%;
+    margin: auto;
+}
+
+#winlosediv {
+    padding: 15% 0;
+}
+
+/* Character Select */
+.charNames {
+    font-family: 'Press Start 2P', cursive;
+    background: -webkit-linear-gradient(rgb(78, 85, 194), #eee, rgb(78, 85, 194));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    word-spacing: 3em;
+}
+
+.charSelect,  {
+    margin:auto;
+    display:block;
+}
+
+.charSelect button {
+    margin: 0 1% 0 1%;
+}
+
+.heroCharacter, .sidekickCharacter, .shadowtakenCharacter, .mothmanCharacter {
+    width: 12%;
+    border: 3px solid white;
+    border-radius: 5px;
+    margin: 0 3%;
+    transition: all 1s ease-in-out;
+}
+
+#itembuttons {
+    width: 25%;
+    border: 3px solid white;
+    border-radius: 5px;
+    margin-bottom: 3%;
+    transition: all 1s ease-in-out;
+}
+
+.flash:hover {
+    opacity: 1;
+    -webkit-animation: flash .9s infinite;
+    animation: flash 1.2s infinite;
+}
+
+@-webkit-keyframes flash {
+    50% { opacity: 1; }
+    100% { opacity: 1; }
+   }
+@keyframes flash {
+50% { opacity: 1; }
+100% { opacity: 1; }
+}
+
+/* Character Stats */
+.heroStats-img {
+    width: 45%;
+    margin:5% -10% 0 0;
+    transition: all 1s ease-in-out;
+}
+
+.heroStats-text {
+    margin-top:5%;
+    margin-left: -2%;
+    font-size: 1.1em;
+}
+
+.heroStats-text p span {
+    color: rgb(196, 190, 93) !important;
+}
+
+.heroStats-text p {
+    font-family: 'Press Start 2P', cursive;
+    background: -webkit-linear-gradient(rgb(78, 85, 194), #eee, rgb(78, 85, 194));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: left;
+}
+
+.blankStats {
+    background: rgba(0, 0, 0, 0.01);
+    width: 250px;
+    height: 283px;
+}
+
+.yellow {
+    background: #F3EA23;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Modal Box */
+.modal-dialog {
+    margin-top: 10%;
+}
+.modal-content {
+    
+    border: 3px solid #1F3E60;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Item Table */
+.item-table {
+    margin-top: 3%;
+}
+
+/* Continue Screen */
+.continue-table {
+    margin-top: 2%;
+    color: #f3ea21;
+    text-shadow: #1F3E60 3px 4px;
+    font-family: 'Acme', sans-serif;
+}
+
+.continue-table td:nth-child(even), .continue-table th:nth-child(even){
+    background-color: #1F3E60;
+  }
+.continue-table td:nth-child(odd), .continue-table th:nth-child(odd){
+    background-color: #396EB6;
+  }
+
+/* Password */hero
+#passwordform img {
+    padding-top: 11%;
+}
+.password-form {
+    margin-top: 5%;
+}
+#submitPassword {
+    margin-top: -1.6%;
+}
+.password-home-btn {
+    margin-bottom: 14%;
+}
+
+/* Boss Page */
+.boss-head {
+    margin-top:2%;
+    width: 75%;
+}
+
+#startbossone, #startbosstwo, #startbossthree {
+    width: 20%;
+    border: 3px solid white;
+    border-radius: 5px;
+    margin: 3% 3%;
+    transition: all .5s ease-in-out;
+}
+
+#startbossone:hover, #startbosstwo:hover, #startbossthree:hover {
+    transform: scale(1.2);
+}
+
+/* BOSS ONE */
+#bossonescreen, #bosstwoscreen, #bossthreescreen {
+    font-family: 'Press Start 2P', cursive;
+    color: #396eb6;
+    text-shadow: #1f3e60 2px 2px;
+}
+
+.thugs-head {
+    width: 80%;
+}
+
+/* Custom Fonts */
+.hero-font {
+    color: #396eb6;
+    text-shadow: #f3ea21 1px 1px;
+}
+.sidekick-font {
+    color: #502f83;
+    text-shadow: #d9d9d9 1px 1px;
+}
+.shadowtaken-font {
+    color: #2e2750;
+    text-shadow: #502F83 1px 1px;
+}
+.mothman-font {
+    color: #9c2e21;
+    text-shadow: #771D14 1px 1px;
+}
+
+/* boss 1 */
+.boss1-text {
+    color: darkgray;
+    text-shadow: #1f3e60 2px 2px;
+}
+
+.boss2-text {
+    color: #798793;
+    text-shadow: #1f3e60 2px 2px;
+}
+
+.boss3-text {
+    color: #3B53A3;
+    text-shadow: #1f3e60 2px 2px;
+}
+
+.boss-box {
+    border: 3px solid #cc0000;
+    border-radius: 5px;
+    width: 95%;
+}
+
+
+.player1-box {
+    border: 3px solid #376FB6;
+    border-radius: 5px;
+    width: 95%;
+}
+
+/* boss stuff */
+.bossattack, .playerattack {
+    padding-top: 2%;
+}
+
+.playerattackstat, .bossattackstat {
+    color:white;
+    text-shadow: #1f3e60 2px 2px;
+}
+
+.nin-three-head {
+    margin-bottom: 2%;
+}
+
+/* .charnamedisplay, .boss-image {
+    background: rgba(0, 0, 0, 0.3);
+} */
