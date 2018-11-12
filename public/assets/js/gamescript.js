@@ -60,15 +60,16 @@ var Champions = [{
 
 
 function run(){
-    var character="Hero";
+    // var character="Hero";
+    var character=arr[0].charName
     const x = Champions
     for(var i=0; i<x.length; i++){
         const list = x[i];
         for(var j=0; j<list.attacks.length; j++){
             var attacks = list.attacks[j];
             if(character==list.name){
-                $(".testing").append("<button id='testtest' data-attribute='"+attacks.damage+"'>" +attacks.attkName +"</button>");
-                $(".testing").append("<h4> "+attacks.moves + "</h4>");
+                $(".testing").append("<button class='abilitiesBtn' id='testtest' data-attribute='"+attacks.damage+"'>" +attacks.attkName +"</button>" +"<br>");
+                $(".testing").append("<h4>"+"Attacks left: " +  attacks.moves + "</h4>");
 
             }
             
@@ -375,13 +376,43 @@ var game1 = function() {
     }
 };
 
-// NEED THIS FOR COMBAT WITH ABILITIES
+// NEED THIS FOR COMBAT WITH ABILITIES****************************************************
 
 $(".testing").on("click","#testtest", function(){
-    var what = $(this).attr("data-attribute");
+   var character = arr[0].charName
+   var div = document.getElementById("testtest");
+   var this1 = $(this).attr("data-attribute");
 
-    console.log(what);
+    
+
+    for(var i=0; i<Champions.length; i++){
+        const list = Champions[i];
+        for(var j=0; j<list.attacks.length; j++){
+            var attacks = list.attacks[j];
+
+            if(character==list.name){
+                div.setAttribute("data-json", JSON.stringify(attacks)); 
+                if(attacks.damage== this1){
+                    console.log(attacks);
+                }
+
+
+
+            }
+           
+            
+        }
+       
+    }
+    
+    
+    // attacks.moves== attacks.moves- 1;
+   
+
+  
 })
+
+//************************************************************************** */
 var game2 = function() {
     playerDefense.splice(0,1,arr[0].defense);
     bossDefense.splice(0,1,arrBoss[0].defense);
