@@ -1,59 +1,6 @@
 //this constructo makes our static characters
 
-var Champions = [{
-    name :"Hero",
-    attacks: [{
-        attkName: "Hero Kick",
-        damage: Math.floor((Math.random() * 13) + 6),
-        moves: 2
-    },
-    {
-       attkName: "Leg Sweep",
-       damage: Math.floor((Math.random() * 10) + 5) ,
-       moves: 3
-    }]
-},
-{
-    "name": "Sidekick",
-    "attacks": [{
-        "attkName": "Helmet Smash",
-        "damage": Math.floor((Math.random() * 8) + 3),
-        "moves": 4
-    },
-    {
-        "attkName": "Grapple Shot",
-        "damage": Math.floor((Math.random() * 13) + 7),
-        "moves": 1
-    }]
-},
-{
-    "name": "Shadowtaken",
-    "attacks": [{
-        "attkName": "Kungfu Sweep",
-        "damage": Math.floor((Math.random() * 14) + 4),
-        "moves": 1
-    },
-    {
-        "attkName": "Backstab",
-        "damage": Math.floor((Math.random() * 10) + 6),
-        "moves": 3
-    }]
-},
-{
-    "name": "Mothman",
-    "attacks": [{
-        "attkName": "Wingstorm Strike",
-        "damage": Math.floor((Math.random() * 12) + 5),
-        "moves": 2
-    },
-    {
-        "attkName": "Air Drop",
-        "damage": Math.floor((Math.random() * 15) + 9),
-        "moves": 1
-    }]
-}
 
-];
 
 var characterMaker = function(charName, attack, defense, intellect) {
     this.charName =  charName;

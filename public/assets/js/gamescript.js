@@ -1,3 +1,96 @@
+// OBJECTS FOR CHARACTER ABILITIES
+
+var Champions = [{
+    "name" :"Hero",
+    "attacks": [{
+        "attkName": "Hero Kick",
+        "damage": Math.floor((Math.random() * 13) + 6),
+        "moves": 2
+    },
+    {
+       "attkName": "Leg Sweep",
+       "damage": Math.floor((Math.random() * 10) + 5) ,
+       "moves": 3
+    }]
+},
+{
+    "name": "Sidekick",
+    "attacks": [{
+        "attkName": "Helmet Smash",
+        "damage": Math.floor((Math.random() * 8) + 3),
+        "moves": 4
+    },
+    {
+        "attkName": "Grapple Shot",
+        "damage": Math.floor((Math.random() * 13) + 7),
+        "moves": 1
+    }]
+},
+{
+    "name": "Shadowtaken",
+    "attacks": [{
+        "attkName": "Kungfu Sweep",
+        "damage": Math.floor((Math.random() * 14) + 4),
+        "moves": 1
+    },
+    {
+        "attkName": "Backstab",
+        "damage": Math.floor((Math.random() * 10) + 6),
+        "moves": 3
+    }]
+},
+{
+    "name": "Mothman",
+    "attacks": [{
+        "attkName": "Wingstorm Strike",
+        "damage": Math.floor((Math.random() * 12) + 5),
+        "moves": 2
+    },
+    {
+        "attkName": "Air Drop",
+        "damage": Math.floor((Math.random() * 15) + 9),
+        "moves": 1
+    }]
+}
+
+];
+
+
+
+
+
+function run(){
+    var character="Hero";
+    const x = Champions
+    for(var i=0; i<x.length; i++){
+        const list = x[i];
+        for(var j=0; j<list.attacks.length; j++){
+            var attacks = list.attacks[j];
+            if(character==list.name){
+                $(".testing").append("<button id='testtest' data-attribute='"+attacks.damage+"'>" +attacks.attkName +"</button>");
+                $(".testing").append("<h4> "+attacks.moves + "</h4>");
+
+            }
+            
+    
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 var arr = ["holder"];
 itemsArr = ["holder"];
 var arrBoss = ["holder"];
@@ -96,6 +189,7 @@ $(".ditchFight").on("click", function(event) {
 
 $("#startbossone").on("click", function(event) {
     event.preventDefault();
+    run();
     $("#startbossone").addClass("rubberBand animated");
     $("#bossonescreen").removeClass("hidden fadeOutDown");
     $("#bossonescreen").addClass("fadeInUp animated");
@@ -149,6 +243,7 @@ $("#startbossthree").on("click", function(event) {
     game3()
 });
 
+
 var playerDefense = ["holder"];
 var bossDefense = ["holder"];
 var game1 = function() {
@@ -160,6 +255,7 @@ var game1 = function() {
     console.log(arr)
     console.log(arrBoss)
     
+ 
 
     $(".playerattack").text("\nATK: " + arr[0].attack);
     $(".playerdefense").text("\nDEF: " + playerDefense[0]);
@@ -170,6 +266,7 @@ var game1 = function() {
         var item3 = arr[3];
         if(item1 !=="none"){
             $(".itemsEquip").text("Equipped Item:\n" +item1+"\n");
+
         }
         if(item2 !=="none"){
             $(".itemsEquip").text("Equipped Item:\n" +item2+"\n");
@@ -277,6 +374,14 @@ var game1 = function() {
         }
     }
 };
+
+// NEED THIS FOR COMBAT WITH ABILITIES
+
+$(".testing").on("click","#testtest", function(){
+    var what = $(this).attr("data-attribute");
+
+    console.log(what);
+})
 var game2 = function() {
     playerDefense.splice(0,1,arr[0].defense);
     bossDefense.splice(0,1,arrBoss[0].defense);
@@ -511,3 +616,7 @@ var hideAllBossDivs = function () {
     $(".bossdiv").removeClass("fadeInUp");
     $(".bossdiv").addClass("fadeOutDown hidden");
 };
+
+
+
+
