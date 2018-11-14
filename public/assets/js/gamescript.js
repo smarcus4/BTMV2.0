@@ -1,3 +1,122 @@
+// OBJECTS FOR CHARACTER ABILITIES
+
+var Champions = [{
+    "name" :"Hero",
+    "attacks": [{
+        "attkName": "Hero Kick",
+        "damage": Math.floor((Math.random() * 13) + 6),
+        "moves": 10
+    },
+    {
+       "attkName": "Leg Sweep",
+       "damage": Math.floor((Math.random() * 10) + 5) ,
+       "moves": 9
+    },
+    {
+        "attkName": "Defense Boost",
+        "damage": Math.floor((Math.random() * 10) + 5),
+        "moves": 2
+    }]
+},
+{
+    "name": "Sidekick",
+    "attacks": [{
+        "attkName": "Helmet Smash",
+        "damage": Math.floor((Math.random() * 8) + 3),
+        "moves": 10
+    },
+    {
+        "attkName": "Grapple Shot",
+        "damage": Math.floor((Math.random() * 13) + 7),
+        "moves": 5
+    },
+    {
+        "attkName": "Defense Boost",
+        "damage": Math.floor((Math.random() * 6) + 1),
+        "moves": 3
+    }]
+},
+{
+    "name": "Shadowtaken",
+    "attacks": [{
+        "attkName": "Kungfu Sweep",
+        "damage": Math.floor((Math.random() * 14) + 4),
+        "moves": 15
+    },
+    {
+        "attkName": "Shadowstrike",
+        "damage": Math.floor((Math.random() * 10) + 6),
+        "moves": 5
+    },
+    {
+        "attkName": "Defense Boost",
+        "damage": Math.floor((Math.random() * 18) + 10),
+        "moves": 1
+    }]
+},
+{
+    "name": "Mothman",
+    "attacks": [{
+        "attkName": "Wingstorm Strike",
+        "damage": Math.floor((Math.random() * 12) + 5),
+        "moves": 10
+    },
+    {
+        "attkName": "Air Drop",
+        "damage": Math.floor((Math.random() * 15) + 9),
+        "moves": 7
+    },
+    {
+        "attkName": "Defense Boost",
+        "damage": Math.floor((Math.random() * 10) + 7),
+        "moves": 4
+    }]
+}
+
+];
+
+
+
+
+
+function run(){
+    // var character="Hero";
+    $(".testing").empty();
+    $(".movesLeft").empty();
+    event.preventDefault();
+    var character=arr[0].charName
+    const x = Champions
+    for(var i=0; i<x.length; i++){
+        const list = x[i];
+        for(var j=0; j<list.attacks.length; j++){
+            var attacks = list.attacks[j];
+            if(character==list.name){
+
+                $(".testing").append("<button class='abilitiesBtn' id='testtest' data-attribute='"+attacks.attkName+"'>" +attacks.attkName +"</button>" +"<br>");
+                $(".movesLeft").append("<h5>"+ attacks.attkName+ " moves: " +  attacks.moves + "</h5>");
+                
+            }
+            
+    
+        }
+    }
+   
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+var attacksArr = ["holder"];
 var arr = ["holder"];
 itemsArr = ["holder"];
 var arrBoss = ["holder"];
@@ -83,6 +202,7 @@ function charImage(x) {
 
 $("#backtogamepage").on("click", function(event) {
     event.preventDefault();
+    
     $("#gamePage").removeClass("hidden");
     $("#winlosediv").addClass("hidden");
 
@@ -90,6 +210,7 @@ $("#backtogamepage").on("click", function(event) {
 
 $(".ditchFight").on("click", function(event) {
     event.preventDefault();
+    run();
     $("#gamePage").removeClass("hidden");
     $("#winlosediv, #bossonescreen, #bosstwoscreen, #bossthreescreen").addClass("hidden");
 });
@@ -103,13 +224,14 @@ $("#startbossone").on("click", function(event) {
     charImage(arr[0].charName)
     // $(".charnamedisplay").text(arr[0].charName);
     $(".usernamedisplay").text(arr[0].userName);
-    var boss = new characterMaker("Bunch o' Thugs", 3, 60, 10);
+    var boss = new characterMaker("Bunch o' Thugs", 1, 250, 25);
     arrBoss.splice(0,1,boss);
     $(".bossnamedisplay").text(arrBoss[0].charName);
     console.log(arrBoss[0]);
     console.log("This is the arr[0].charName");
     console.log(arr[0].charName);
     changeFont();
+    run();
     game1();
 });
 
@@ -121,13 +243,14 @@ $("#startbosstwo").on("click", function(event) {
     $("#gamePage").addClass("hidden");
     $(".charnamedisplay").text(arr[0].charName);
     $(".usernamedisplay").text(arr[0].userName);
-    var boss = new characterMaker("Ninja Three", 10, 80, 15);
+    var boss = new characterMaker("Ninja Three", 1, 400, 35);
     arrBoss.splice(0,1,boss);
     $(".bossnamedisplay").text(arrBoss[0].charName);
     $(".playerattackstat").text("ON YOUR MARK!");
     $(".bossattackstat").text("THEY GOT YOU IN THIER SIGHTS!!!!");
     console.log(arrBoss[0]);
     changeFont();
+    run();
     game2()
 });
 
@@ -139,20 +262,30 @@ $("#startbossthree").on("click", function(event) {
     $("#gamePage").addClass("hidden");
     $(".charnamedisplay").text(arr[0].charName);
     $(".usernamedisplay").text(arr[0].userName);
-    var boss = new characterMaker("Robo-Bot", 15, 100, 20);
+    var boss = new characterMaker("Robo-Bot", 1, 550, 50);
     arrBoss.splice(0,1,boss);
     $(".bossnamedisplay").text(arrBoss[0].charName);
-    $(".playerattackstat").text("INSTALL McAFee ON THIS BITCH!!");
+    $(".playerattackstat").text("INSTALL McAFee ON THIS Guy!!");
     $(".bossattackstat").text("IT'S PENETRATING YOUR BACK FIREWALL");
     console.log(arrBoss[0]);
     changeFont();
+    run();
     game3()
 });
+
 
 var playerDefense = ["holder"];
 var bossDefense = ["holder"];
 var game1 = function() {
-    playerDefense.splice(0,1,arr[0].defense);
+    
+    if(playerDefense[0]>0){
+        playerDefense.splice(0,1,playerDefense[0]);
+    }else if(playerDefense[0]<=0){
+        playerDefense.splice(0,1,arr[0].defense);
+    }else{
+        playerDefense.splice(0,1, arr[0].defense);
+    }
+
     bossDefense.splice(0,1,arrBoss[0].defense);
 
     console.log(playerDefense);
@@ -160,16 +293,92 @@ var game1 = function() {
     console.log(arr)
     console.log(arrBoss)
     
+ 
 
     $(".playerattack").text("\nATK: " + arr[0].attack);
     $(".playerdefense").text("\nDEF: " + playerDefense[0]);
     $(".playerintellect").text("\nINT: " + arr[0].intellect);
+
+
+    $(".testing").on("click","#testtest", function(){
+        var character = arr[0].charName
+        var div = document.getElementById("testtest");
+        var this1 = $(this).attr("data-attribute");
+  
+     
+         for(var i=0; i<Champions.length; i++){
+             const list = Champions[i];
+             for(var j=0; j<list.attacks.length; j++){
+                 var attacks = list.attacks[j];
+
+                 if(character==list.name){
+                     div.setAttribute("data-json", JSON.stringify(attacks)); 
+
+                     
+                     if(attacks.attkName== this1){
+                         console.log(attacks);
+                         attacksArr.splice(0,1,attacks.attkName, attacks.damage,attacks.moves)
+                        //  attacks.moves = attacksArr[2];
+
+     
+                         if(attacks.moves>0){
+                             attacks.moves-= 1;
+                             $(".movesLeft").empty();
+                             $(".movesLeft").append("<h5>"+ attacks.attkName+ " moves: " +  attacks.moves + "</h5>");
+                             $(".movesLeft").addClass("tada animated");
+
+                             bossAttack();
+     
+     
+     
+                         }else if(attacks.moves <1){
+                             $(".movesLeft").html("out of that ability");
+     
+                         }
+                         console.log("READ THIS");
+                         console.log(attacks.damage);
+                         console.log(attacks.moves);
+
+                         // $(".movesLeft").empty();
+                         // $(".movesLeft").append("<h4>"+"Attacks left: "+ attacks.attkName+ " " +  attacks.moves + "</h4>");
+                    }
+
+     
+                    
+
+     
+     
+                 }
+
+                 
+             }
+
+            
+         }
+         
+         
+         // attacks.moves== attacks.moves- 1;
+        
+     abilityAttack();
+     ifBossDead();
+       
+     })
+
+    
+
+
+   
+
+
+
+
     for(var i=0; i<arr.length; i++){
         var item1 = arr[1];
         var item2= arr[2];
         var item3 = arr[3];
         if(item1 !=="none"){
             $(".itemsEquip").text("Equipped Item:\n" +item1+"\n");
+
         }
         if(item2 !=="none"){
             $(".itemsEquip").text("Equipped Item:\n" +item2+"\n");
@@ -209,8 +418,10 @@ var game1 = function() {
 
     var bossAttack = function() {
         var attack = arrBoss[0].attack;
+        attack= Math.round(Math.floor((Math.random()*1)+1)+attack);
         var intellect = arrBoss[0].intellect;
-
+        console.log("BOSS DMG");
+        console.log(attack);
         if ((Math.floor((Math.random() * 100) + 1)) <= intellect) {
             $(".bossattackstat").text("YOU'VE TAKEN A BLOW!");
             var damage = (playerDefense[0] - attack);
@@ -227,6 +438,7 @@ var game1 = function() {
 
     $("#playerButtonb1").on("click", function(event) {
         event.preventDefault();
+        $(".movesLeft").empty();
         playerAttack();
         console.log("B1Button");
     });
@@ -253,7 +465,7 @@ var game1 = function() {
             $("#winlosediv").addClass("fadeInUp animated");
             $("#defeatedBossImg").removeClass("hidden");
             $("#winlosetext").text("Rejoice " + arr[0].userName);
-            playerDefense = ["whatPlayer"];
+            // playerDefense = ["whatPlayer"];
             bossDefense = ["whatBoss"];
             console.log(playerDefense);
             console.log(bossDefense);
@@ -276,18 +488,76 @@ var game1 = function() {
             return console.log("fight end and you loss");
         }
     }
+
+
+
+    var abilityAttack = function(){
+        var ability = parseInt(attacksArr[1]);
+
+        var abilityName = attacksArr[0];
+        var moves = attacksArr[2];
+        if((abilityName=="Defense Boost") && (moves>0)){
+            ability = Math.round(Math.floor((Math.random() *20)+15) + ability);
+          
+            $(".playerdefense").text("\nDEF: " + (parseInt(playerDefense[0])+ability));
+     
+            playerDefense.splice(0,1, (parseInt(playerDefense[0])+ability));
+            console.log("STUFF");
+            console.log(playerDefense[0]);
+
+
+
+        }else{
+            
+            ability = Math.round(Math.floor((Math.random() *500)+100) /ability);
+            var damageBoss = (bossDefense[0] - ability);
+        }
+    
+    
+        if(moves>0 && abilityName!=="Defense Boost"){
+            bossDefense.splice(0, 1, damageBoss);
+    
+            $(".bossdefense").text("\nDEF: " + damageBoss);
+        }
+        
+        if(ability >30 && moves>0){
+            $(".playerattackstat").text("CRITICAL HIT: " + ability);
+            console.log("hm");
+            console.log(moves);
+            console.log(ability);
+    
+        }else if(ability <30 && moves>0){
+            $(".playerattackstat").text("HIT: " + ability);
+
+        }else{
+            $(".playerattackstat").empty();
+        }
+    
+        ifBossDead();
+    }
+    
 };
+
+
 var game2 = function() {
-    playerDefense.splice(0,1,arr[0].defense);
+
+    if(playerDefense[0]>0){
+        playerDefense.splice(0,1,playerDefense[0]);
+    }else if(playerDefense[0]<=0){
+        playerDefense.splice(0,1,arr[0].defense);
+    }else{
+        playerDefense.splice(0,1, arr[0].defense);
+    }
+    console.log(playerDefense)
     bossDefense.splice(0,1,arrBoss[0].defense);
-    console.log(playerDefense);
+
     console.log(bossDefense);
     console.log(arr);
     console.log(arrBoss);
     
 
     $(".playerattack").text("\nATK: " + arr[0].attack);
-    $(".playerdefense").text("\nDEF: " + playerDefense[0]);
+    $(".playerdefense").text("\nDEF: " + playerDefense);
     $(".playerintellect").text("\nINT: " + arr[0].intellect);
 
     $(".bossattack").text("\nATK: " + arrBoss[0].attack);
@@ -295,10 +565,116 @@ var game2 = function() {
     $(".bossintellect").text("\nINT: " + arrBoss[0].intellect);
 
 
+    $(".testing").on("click","#testtest", function(){
+        var character = arr[0].charName
+        var div = document.getElementById("testtest");
+        var this1 = $(this).attr("data-attribute");
+  
+     
+         for(var i=0; i<Champions.length; i++){
+             const list = Champions[i];
+             for(var j=0; j<list.attacks.length; j++){
+                 var attacks = list.attacks[j];
+
+                 if(character==list.name){
+                     div.setAttribute("data-json", JSON.stringify(attacks)); 
+
+                     
+                     if(attacks.attkName== this1){
+                         console.log(attacks);
+                         attacksArr.splice(0,1,attacks.attkName, attacks.damage,attacks.moves)
+                        //  attacks.moves = attacksArr[2];
+
+     
+                         if(attacks.moves>0){
+                             attacks.moves-= 1;
+                             $(".movesLeft").empty();
+                             $(".movesLeft").append("<h5>"+ attacks.attkName+ " moves: " +  attacks.moves + "</h5>");
+                             $(".movesLeft").addClass("tada animated");
+
+                            bossAttack();
+     
+     
+     
+                         }else if(attacks.moves <1){
+                             $(".movesLeft").html("out of that ability");
+     
+                         }
+
+                         // $(".movesLeft").empty();
+                         // $(".movesLeft").append("<h4>"+"Attacks left: "+ attacks.attkName+ " " +  attacks.moves + "</h4>");
+                    }
+
+     
+                    
+
+     
+     
+                 }
+
+                 
+             }
+
+            
+         }
+         
+         
+         // attacks.moves== attacks.moves- 1;
+        
+     abilityAttack();
+     ifBossDead();
+       
+     })
+    
+    var abilityAttack = function(){
+        var ability = parseInt(attacksArr[1]);
+
+        var abilityName = attacksArr[0];
+        var moves = attacksArr[2];
+        if((abilityName=="Defense Boost") && (moves>0)){
+            ability = Math.round(Math.floor((Math.random() *20)+15) + ability);
+          
+            $(".playerdefense").text("\nDEF: " + (parseInt(playerDefense[0])+ability));
+     
+            playerDefense.splice(0,1, (parseInt(playerDefense[0])+ability));
+            console.log("STUFF");
+            console.log(playerDefense[0]);
+
+
+
+        }else{
+            
+            ability = Math.round(Math.floor((Math.random() *500)+100) /ability);
+            var damageBoss = (bossDefense[0] - ability);
+        }
+    
+    
+        if(moves>0 && abilityName!=="Defense Boost"){
+            bossDefense.splice(0, 1, damageBoss);
+    
+            $(".bossdefense").text("\nDEF: " + damageBoss);
+        }
+        
+        if(ability >30 && moves>0){
+            $(".playerattackstat").text("CRITICAL HIT: " + ability);
+    
+        }else if(ability <30 && moves>0){
+            $(".playerattackstat").text("HIT: " + ability);
+
+        }else{
+            $(".playerattackstat").empty();
+        }
+    
+        ifBossDead();
+    }
+
+    
+
 
     var playerAttack = function() {
         var attack = arr[0].attack;
         var intellect = arr[0].intellect;
+    
 
         if ((Math.floor((Math.random() * 100) + 1)) <= intellect) {
             $(".playerattackstat").text("ATTACK!");
@@ -327,8 +703,9 @@ var game2 = function() {
     var bossAttack = function() {
         var attack = arrBoss[0].attack;
         var intellect = arrBoss[0].intellect;
+        attack= Math.round(Math.floor((Math.random()*1)+1)+attack);
 
-        if ((Math.floor((Math.random() * 100) + 1)) <= intellect) {
+        if ((Math.floor((Math.random() * 100) + 1)) >= intellect) {
             $(".bossattackstat").text("YOU'VE TAKEN A BLOW!");
             var damage = (playerDefense[0] - attack);
             playerDefense.splice(0, 1, damage);
@@ -351,7 +728,9 @@ var game2 = function() {
         event.preventDefault();
         console.log(playerDefense);
         console.log(bossDefense);
+        $(".movesLeft").empty();
         playerAttack();
+        
         console.log("B2Button");
     });
     // $("#playerButtonb3").on("click", function(event) {
@@ -360,7 +739,7 @@ var game2 = function() {
     //     console.log("B3Button");
     // });
 
-    console.log("Player life: " + playerDefense);
+    console.log("Player life: " + playerDefense[0]);
     console.log("Boss life: " + bossDefense);
 
     var ifBossDead = function() {
@@ -370,7 +749,7 @@ var game2 = function() {
             $("#winlosediv").addClass("fadeInUp animated");
             $("#defeatedBossImg").removeClass("hidden");
             $("#winlosetext").text("Boss has been defeated! Rejoice " + arr[0].userName);
-            playerDefense = ["whatPlayer"];
+            // playerDefense = ["whatPlayer"];
             bossDefense = ["whatBoss"];
             console.log(playerDefense);
             console.log(bossDefense);
@@ -395,7 +774,14 @@ var game2 = function() {
     }
 };
 var game3 = function() {
-    playerDefense.splice(0,1,arr[0].defense);
+    if(playerDefense[0]>0){
+        playerDefense.splice(0,1,playerDefense[0]);
+    }else if(playerDefense[0]<=0){
+        playerDefense.splice(0,1,arr[0].defense);
+    }else{
+        playerDefense.splice(0,1, arr[0].defense);
+    } 
+    
     bossDefense.splice(0,1,arrBoss[0].defense);
 
     console.log(playerDefense);
@@ -411,7 +797,7 @@ var game3 = function() {
     $(".bossdefense").text("\nDEF: " + bossDefense[0]);
     $(".bossintellect").text("\nINT: " + arrBoss[0].intellect);
 
-
+   
 
     var playerAttack = function() {
         var attack = arr[0].attack;
@@ -440,6 +826,8 @@ var game3 = function() {
     var bossAttack = function() {
         var attack = arrBoss[0].attack;
         var intellect = arrBoss[0].intellect;
+        attack= Math.round(Math.floor((Math.random()*1)+1)+attack);
+
 
         if ((Math.floor((Math.random() * 100) + 1)) <= intellect) {
             $(".bossattackstat").text("YOU'VE TAKEN A BLOW!");
@@ -469,6 +857,7 @@ var game3 = function() {
     // });
     $("#playerButtonb3").on("click", function(event) {
         event.preventDefault();
+        $(".movesLeft").empty();
         playerAttack();
         console.log("B3Button");
     });
@@ -483,7 +872,7 @@ var game3 = function() {
             $("#winlosediv").addClass("fadeInUp animated");
             $("#defeatedBossImg").removeClass("hidden");
             $("#winlosetext").text("YOU'VE SAVED METRO CITY!");
-            playerDefense = ["whatPlayer"];
+            // playerDefense = ["whatPlayer"];
             bossDefense = ["whatBoss"];
             console.log(playerDefense);
             console.log(bossDefense);
@@ -500,14 +889,63 @@ var game3 = function() {
             $("#defeatedBossImg").addClass("hidden");
             $("#winlosetext").text("Your life " + arr[0].userName + " will be forgotten");
             $("#winlosetext").append("<br><br><button><a href = '/gamepage' style='text-decoration:none'>GET A NEW SLICE OF BOLONEY CHUMP</a></button>");
-
             console.log(playerDefense);
             console.log(bossDefense);
             return console.log("fight end and you loss");
         }
     }
+
+    var abilityAttack = function(){
+        var ability = parseInt(attacksArr[1]);
+
+        var abilityName = attacksArr[0];
+        var moves = attacksArr[2];
+        if((abilityName=="Defense Boost") && (moves>0)){
+            ability = Math.round(Math.floor((Math.random() *20)+15) + ability);
+          
+            $(".playerdefense").text("\nDEF: " + (parseInt(playerDefense[0])+ability));
+     
+            playerDefense.splice(0,1, (parseInt(playerDefense[0])+ability));
+            console.log("STUFF");
+            console.log(playerDefense[0]);
+
+
+
+        }else{
+            
+            ability = Math.round(Math.floor((Math.random() *500)+100) /ability);
+            var damageBoss = (bossDefense[0] - ability);
+        }
+    
+    
+        if(moves>0 && abilityName!=="Defense Boost"){
+            bossDefense.splice(0, 1, damageBoss);
+    
+            $(".bossdefense").text("\nDEF: " + damageBoss);
+        }
+        
+        if(ability >30 && moves>0){
+            $(".playerattackstat").text("CRITICAL HIT: " + ability);
+    
+        }else if(ability <30 && moves>0){
+            $(".playerattackstat").text("HIT: " + ability);
+
+        }else{
+            $(".playerattackstat").empty();
+        }
+    
+        ifBossDead();
+    }
+
+    
+    
+
 };
 var hideAllBossDivs = function () {
     $(".bossdiv").removeClass("fadeInUp");
     $(".bossdiv").addClass("fadeOutDown hidden");
 };
+
+
+
+

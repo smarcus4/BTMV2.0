@@ -63,6 +63,20 @@ body {
     margin: 0 1%;
 }
 
+.abilitiesBtn{
+    font-family: 'Press Start 2P', cursive;
+    margin: auto;
+    font-size: 1em;
+    padding: 13px;
+    color: #F1DA28;
+    background-color: #494D7C;
+    box-shadow: 5px 5px lightgrey;
+    transition: all .1s ease-in-out;
+    padding: 5px 5px;
+    margin: 1% 1%;
+    cursor: pointer;
+}
+
 #submitCredentials:hover, .backHome:hover, #backToUser:hover, #charCreation:hover, #submitUser:hover, #itemScreen:hover, #modal-close:hover, #submitPassword:hover, #playerButtonb1:hover, #playerButtonb2:hover, #playerButtonb3:hover,  backtogamepage:hover, .ditchFight:hover {
     transform: scale(1.05);
 }
